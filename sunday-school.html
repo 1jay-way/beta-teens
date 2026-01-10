@@ -34,7 +34,76 @@
                 <p>Join our Sunday School sessions to deepen your understanding of the Bible. We offer engaging lessons and activities for teens to grow in their faith.</p>
             </div>
         </div>
-    </main>
+    </    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
+        .bible-card { background: white; width: 100%; max-width: 600px; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .search-box { display: flex; gap: 10px; margin-bottom: 20px; }
+        input { flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 6px; outline: none; }
+        input:focus { border-color: #3498db; }
+        button { padding: 12px 20px; background: #3498db; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #2980b9; }
+        #output { line-height: 1.8; color: #2c3e50; font-size: 18px; }
+        .verse-num { font-weight: bold; color: #3498db; margin-right: 5px; font-size: 0.8em; vertical-align: top; }
+        .error { color: #e74c3c; background: #fdf2f2; padding: 10px; border-radius: 5px; text-align: center; }
+        .loading { text-align: center; color: #7f8c8d; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<div class="bible-card">
+    <h2 style="margin-top:0">📖 Bible Reader</h2>
+    <div class="search-box">
+        <input type="text" id="verseInput" placeholder="Try 'John 3:16' or 'Psalm 23'">
+        <button onclick="searchBible()">Read</button>
+    </div>
+
+    <div id="output">
+        <p style="text-align:center; color:#95a5a6;">Type a verse and press Read</p>
+    </div>
+</div>
+
+<script>
+    async function searchBible() {
+        const query = document.getElementById('verseInput').value;
+        const output = document.getElementById('output');
+        
+        if (!query) return;
+
+        // Show loading state
+        output.innerHTML = '<p class="loading">Searching the scriptures...</p>';
+
+        try {
+            const response = await fetch(`https://bible-api.com/${encodeURIComponent(query)}`);
+            
+            if (!response.ok) {
+                throw new Error("Verse not found. Check your spelling (e.g., 'Genesis 1:1')");
+            }
+
+            const data = await response.json();
+
+            // Build the HTML for the verses
+            let content = `<h3 style="color:#2c3e50; border-bottom: 2px solid #eee; padding-bottom:10px;">${data.reference}</h3>`;
+            
+            data.verses.forEach(v => {
+                content += `<p><span class="verse-num">${v.verse}</span>${v.text}</p>`;
+            });
+
+            output.innerHTML = content;
+
+        } catch (error) {
+            output.innerHTML = `<p class="error">⚠️ ${error.message}</p>`;
+        }
+    }
+
+    // Allow pressing "Enter" to search
+    document.getElementById('verseInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') searchBible();
+    });
+</script>
+
+    
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
