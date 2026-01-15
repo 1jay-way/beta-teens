@@ -1,46 +1,50 @@
-/* ===== GLOBAL STYLES ===== */
-
-/* Body and overall page styling */
-body{
+/* =====================================================
+   GLOBAL / RESET
+===================================================== */
+body {
     margin: 0;
-    padding:0;
-    font-family: "poppins" ,sans-serif;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
     color: rgb(8, 46, 87);
-   background: cornsilk;
+    background: cornsilk;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* ===== HEADER STYLES ===== */
-
-/* Main header container */
-header{
+/* =====================================================
+   HEADER
+===================================================== */
+header {
     background-color: rgb(234, 181, 9);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 15px;
 }
 
-/* Top header section containing hamburger menu and title */
 .top-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-/* Hamburger menu button (three lines) */
+.top-header h1 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Hamburger */
 .hamburger {
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    margin-bottom: 10px;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 6px;
 }
 
-/* Individual lines in hamburger menu */
 .hamburger span {
     width: 100%;
     height: 3px;
@@ -48,331 +52,291 @@ header{
     transition: 0.3s;
 }
 
-/* ===== NAVIGATION MENU STYLES ===== */
+/* Logo */
+.imag {
+    width: 70px;
+    border-radius: 50%;
+}
 
-/* Dropdown navigation menu */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 .nav-menu {
     display: none;
     position: absolute;
-    top: 50px;
+    top: 70px;
     left: 0;
-    background: rgba(234, 127, 13, 0.712);
-    width: 200px;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    padding-bottom: 20px;
+    background: rgba(234, 127, 13, 0.9);
+    width: 220px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 100;
 }
 
-/* Navigation menu list */
+.nav-menu.active {
+    display: block;
+}
+
 .nav-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .nav-menu li {
-    padding: 10px;
+    padding: 12px;
 }
+
 .nav-menu a {
     text-decoration: none;
     color: rgb(7, 62, 94);
     font-weight: bold;
 }
 
-/* ===== LOGO AND GENERAL ELEMENTS ===== */
-
-/* Logo image in header */
-.imag{ 
-    width: 100px;
-    border-radius: 50px;
+/* =====================================================
+   SHARED CONTAINERS
+===================================================== */
+main {
+    padding: 10px;
 }
 
-/* ===== ABOUT SECTION STYLES ===== */
-
-/* About section container */
-.about{
-   background: rgba(255, 255, 255, o.2);
-   backdrop-filter: blur(10px);
-   padding: 20px;
-   border-radius: 20px;
-   box-shadow: 0 4px 10px rgba(180, 30, 30, 0.3);
-   text-align: center;
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(180, 30, 30, 0.3);
+    text-align: center;
 }
 
-/* ===== TYPOGRAPHY STYLES ===== */
-
-/* Heading level 2 */
-h2{
-    margin-left: 20px;
+/* =====================================================
+   ABOUT (INDEX)
+===================================================== */
+.about {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 15px;
+    text-align: center;
 }
 
-/* Heading level 6 */
-h6{
-    margin-left: 80px;
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+h2 {
+    margin: 10px 0;
 }
 
-/* ===== MAIN CONTAINER STYLES ===== */
-
-/* Main content container */
-.container{
-   background: rgba(255, 255, 255, o.2);
-   backdrop-filter: blur(10px);
-   padding: 149px;
-   border-radius: 20px;
-   box-shadow: 0 4px 10px rgba(180, 30, 30, 0.3);
-   text-align: center;
+h5, h6 {
+    margin: 10px 0;
+    line-height: 1.6;
 }
 
-/* ===== EVENT SECTION STYLES ===== */
-
-/* Event container */
-.event{
-      background: rgba(255, 255, 255, 0.8);
+/* =====================================================
+   EVENTS – INDEX PAGE
+===================================================== */
+.event {
+    background: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin: 20px;
+    margin: 15px 0;
     display: flex;
-    flex-wrap: nowrap;
+    gap: 10px;
     overflow-x: auto;
-    justify-content: flex-start;
+    flex-wrap: nowrap;
 }
 
-/* Individual video container */
-.video{
-    margin: 10px;
+.video {
+    flex-shrink: 0;
     border-radius: 10px;
     overflow: hidden;
-    flex-shrink: 0;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* ===== RESPONSIVE DESIGN - MOBILE AND TABLET STYLES ===== */
-
-/* Mobile and tablet styles (screens 768px and below) */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-    .event {
-        padding: 10px;
-        margin: 10px;
-    }
-    .video iframe {
-        width: 150px;
-        height: 100px;
-    }
-    h2 {
-        margin-left: 0;
-        font-size: 1.2em;
-    }
-    h6 {
-        margin-left: 0;
-        font-size: 0.9em;
-    }
-    header h1 {
-        font-size: 1.2em;
-    }
-    .two-boxes {
-        gap: 10px;
-    }
-    .box {
-        padding: 25px;
-    }
-    .video-js {
-        width: 150px;
-        height: 100px;
-    }
-    .live-section {
-        padding: 15px;
-        width: 100%;
-    }
-    .event-image {
-        width: 80px;
-        height: 60px;
-    }
-    .videos {
-        flex-direction: row;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-    }
-    .video {
-        min-width: 150px;
-    }
-    .live-content iframe {
-        width: 150px;
-        height: 100px;
-    }
-    .belive {   
-     width: 90px;
-    height: 100px;
-    background-image: url('belive 26 .jpg');
-    background-size: cover;   
-    background-position: center;
-    background-repeat: no-repeat;      border-radius: 10px; 
-    border: 9px solid #9f1414;
-    margin: 0 auto 20px auto;
-    }
+.video iframe {
+    width: 160px;
+    height: 110px;
+    border-radius: 10px;
 }
 
-/* ===== BOX COMPONENT STYLES ===== */
-
-/* Generic box container */
+/* =====================================================
+   BOX
+===================================================== */
 .box {
     background: rgba(255, 255, 255, 0.8);
-    padding: 40px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    flex: 1;
-    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin: 15px 0;
 }
 
-/* ===== MODAL POPUP STYLES ===== */
-
-/* Modal overlay background */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-/* Modal content container */
-.modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Modal close button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.close:hover {
-    color: black;
-}
-
-/* ===== VIDEO PLAYER STYLES ===== */
-
-/* Video.js player container */
-.video-js {
-    width: 200px;
-    height: 150px;
-}
-
-/* ===== LIVE EVENT SECTION STYLES ===== */
-
-/* Live events section container */
+/* =====================================================
+   EVENTS PAGE – LIVE SECTION
+===================================================== */
 .live-section {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin: 20px auto;
     text-align: center;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
-/* Live content container */
 .live-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Live video iframe styling */
 .live-content iframe {
-    width: 200px;
-    height: 150px;
+    width: 100%;
+    max-width: 300px;
+    height: 180px;
     border-radius: 10px;
     border: none;
 }
 
-/* Live status indicator */
 .live-status {
     color: red;
     font-weight: bold;
-    font-size: 1.2em;
     margin-top: 10px;
 }
 
-/* ===== EVENT GALLERY STYLES ===== */
-
-/* Event image styling */
-.event-image {
-    width: 100px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin: 5px;
-    display: inline-block;
-}
-.videos, .pictures {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    flex: 1;
-}
+/* =====================================================
+   EVENTS PAGE – VIDEOS
+===================================================== */
 .videos {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
+    overflow-x: auto;
 }
-.video {
-    flex: 1;
+
+.videos .video {
     min-width: 180px;
 }
-.pictures {
-    display: flex;
-    flex-wrap: wrap;
-    justifys-content: center;
-}
-.photos-events{
+
+/* =====================================================
+   PHOTOS / BELIVE
+===================================================== */
+.photos-events {
     background-color: aliceblue;
     margin-top: 20px;
     padding: 20px;
-    border-radius:20px;
-    color: black;
-    box-shadow: 0 3px 10px rgba(blue);
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
 
-/* ===== BELIVE IMAGE STYLES ===== */
-
-/* Background image container for Believe event */
-.belive{
-    width:300px;
-    height: 250px;
+.belive {
+    width: 100%;
+    max-width: 300px;
+    height: 220px;
     background-image: url('belive 26 .jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 10px;
-    border: 2px solid #ddd;
+    border: 3px solid #9f1414;
     margin: 0 auto 20px auto;
 }
 
-/*  STUDY GUILD STARTS */
-.study-body{
-    
+/* =====================================================
+   MODAL
+===================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.close {
+    float: right;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* =====================================================
+   TABLET (≥ 768px)
+===================================================== */
+@media (min-width: 768px) {
+    .imag {
+        width: 90px;
+    }
+
+    .top-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .container {
+        padding: 40px;
+    }
+
+    .event {
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    .video iframe {
+        width: 200px;
+        height: 140px;
+    }
+
+    .videos {
+        justify-content: center;
+        overflow-x: hidden;
+        flex-wrap: wrap;
+    }
+
+    .live-content iframe {
+        max-width: 400px;
+        height: 220px;
+    }
+}
+
+/* =====================================================
+   DESKTOP (≥ 1024px)
+===================================================== */
+@media (min-width: 1024px) {
+    main {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    header {
+        padding: 15px 40px;
+    }
+
+    .video iframe {
+        width: 240px;
+        height: 160px;
+    }
+
+    .box {
+        padding: 50px;
+    }
+
+    .live-section {
+        width: 60%;
+    }
+}
+
+/* =====================================================
+   STUDY GUIDE (KEPT – NOT MODIFIED)
+===================================================== */
+.study-body {
     background-color: rgb(36, 171, 171);
 }
