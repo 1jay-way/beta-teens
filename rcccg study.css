@@ -25,6 +25,8 @@ header{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 9px;
+    margin-top: 10px;
 }
 
 /* Hamburger menu button (three lines) */
@@ -83,6 +85,8 @@ header{
 /* Logo image in header */
 .imag{ 
     width: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
 }
 .study-guild {
   background-color: #e4faf6a7;
@@ -121,12 +125,14 @@ header{
 .bible-image {
   flex: 1;
   text-align: center;
+
 }
 
-.bible-image img {
-  max-width: 100%;
+.studyimg{
+width: 250px;
+height: 250px;
   border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.604);
 }
 
 .study-guild-text {
@@ -167,3 +173,16 @@ header{
 .study-guild-btn:hover {
   background-color: #563c2e;
 }
+@media (min-width: 768px) {
+    .imag {
+        width: 120px;
+        
+    }
+    .studyimg{
+        width: 400px;
+        height: 400px;
+    }
+  }
+
+
+
